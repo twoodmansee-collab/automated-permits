@@ -1,0 +1,11 @@
+import React, { useState } from 'react';
+import './index.css';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+
+export default function App() {
+  const [user, setUser] = useState(null);
+
+  if (!user) return <Login onLogin={setUser} />;
+  return <Dashboard user={user} onLogout={() => setUser(null)} />;
+}
